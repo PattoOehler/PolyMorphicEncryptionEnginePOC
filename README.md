@@ -11,8 +11,8 @@ This code creates encrypted code that decrypts and executes within RAM. This cod
  # Explanation
 
   There are 3 files for this code Data.asm, Main.asm, and Setup.c.  
-  Data.asm is Hello World in assembly, however since it does not know its location in memory it has to get that from the stack. (This code is not put in, the bytecode is in Setup.c, however this file is unused)
-  Main.asm decrypts the code(within ram) and jumps to it.  This file cannot run without Setup.c because it decrypts and jumps to code that has not been put in yet.
+  Data.asm is Hello World in assembly, however since it does not know its location in memory it has to get that from the stack. (This code is not put in, the bytecode is in Setup.c, however this file is unused) <br/>
+  Main.asm decrypts the code(within ram) and jumps to it.  This file cannot run without Setup.c because it decrypts and jumps to code that has not been put in yet. <br/>
   Setup.c Puts in the encrypted code and the decryption code into Needs_Setup(which comes from Main.asm)
   
  ## Compiling
