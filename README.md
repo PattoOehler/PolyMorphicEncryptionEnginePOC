@@ -17,4 +17,14 @@ This code creates encrypted code that decrypts and executes within RAM. This cod
   
  ## Compiling
   
-  To compile for yourself, or change the code to be executed 
+  To compile for yourself, you first need to compile Main.asm with "nasm -f elf64 -o Main.o Main.asm" <br/>
+  Then run "ld -o Needs_Setup Main.o" to link
+  then compile Setup.c with "gcc -o Setup Setup.c"
+  You can then run Setup with "./Setup"
+  And run Needs Setup "./Needs_Setup"
+  
+  if ./Needs_Setup creates an error of any kind, that means that the Locations of the ByteCodeBeginning_Location is off and/or Location_Encyrption_Value is off.
+  To find the locations of these we need a fresh copy, so rerun all of the steps to compile the code, but don't execute anything.
+  
+  Run objdump -d Needs_Setup and look for subb $0x2, look at all the bytes around it and find that in "xxd Needs_setup" also in that find a long string of 1's (31 in hexadecimal).  Convert the location on the left side of the xxd output from hexadecimal to binary and put the locations of them both in Setup.c. Recompile and it will run.
+  
