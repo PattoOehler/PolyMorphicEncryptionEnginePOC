@@ -1,4 +1,4 @@
-# PolyMorphicEncryptionEnginePOC
+# Polymorphic Encryption Engine POC
 ## Overview
 This code creates encrypted code that decrypts and executes within RAM. This code is only a Proof of concept and prints out "Hello World".
 
