@@ -5,7 +5,7 @@ This code creates encrypted code that decrypts and executes within RAM. This cod
 ## Installing & Running
  All of the files are compiled already and placed within the /bin directory. All of these were compiled on Ubunutu Linux using gcc and nasm.
  This code will not work on Windows.
- To run execute Setup(from setup.c) this will change the encryption key and data for the file Needs_Setup. Then running Needs_Setup will print "Hello World".
+ To run execute Setup(from setup.c `./Setup`) this will change the encryption key and data for the file Needs_Setup. Then running Needs_Setup will print "Hello World".
  Running Setup again will change the encryption byte every time, you can prove this by looking at the checksum or by looking with a hex editor.  
 
  # Explanation
@@ -17,14 +17,14 @@ This code creates encrypted code that decrypts and executes within RAM. This cod
   
  ## Compiling
   
-  To compile for yourself, you first need to compile Main.asm with "nasm -f elf64 -o Main.o Main.asm" <br/>
-  Then run "ld -o Needs_Setup Main.o" to link
-  then compile Setup.c with "gcc -o Setup Setup.c"
-  You can then run Setup with "./Setup"
-  And run Needs Setup "./Needs_Setup"
+  To compile for yourself, you first need to compile Main.asm with `nasm -f elf64 -o Main.o Main.asm` <br/>
+  Then run `ld -o Needs_Setup Main.o` to link
+  then compile Setup.c with `gcc -o Setup Setup.c`
+  You can then run Setup with `./Setup`
+  And run Needs Setup `./Needs_Setup`
   
-  if ./Needs_Setup creates an error of any kind, that means that the Locations of the ByteCodeBeginning_Location is off and/or Location_Encyrption_Value is off.
+  if `./Needs_Setup` creates an error of any kind, that means that the Locations of the ByteCodeBeginning_Location is off and/or Location_Encyrption_Value is off.
   To find the locations of these we need a fresh copy, so rerun all of the steps to compile the code, but don't execute anything.
   
-  Run objdump -d Needs_Setup and look for subb $0x2, look at all the bytes around it and find that in "xxd Needs_setup" also in that find a long string of 1's (31 in hexadecimal).  Convert the location on the left side of the xxd output from hexadecimal to binary and put the locations of them both in Setup.c. Recompile and it will run.
+  Run `objdump -d Needs_Setup` and look for `subb $0x2`, look at all the bytes around it and find that in `xxd Needs_setup` also in that find a long string of 1's (31 in hexadecimal).  Convert the location on the left side of the xxd output from hexadecimal to binary and put the locations of them both in Setup.c. Recompile and it will run.
   
